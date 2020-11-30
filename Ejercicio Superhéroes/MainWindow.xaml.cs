@@ -15,6 +15,7 @@ namespace Ejercicio_Superhéroes
         int contador = 0;
         int numero = 1;
 
+
         public MainWindow()
         {
             InitializeComponent();

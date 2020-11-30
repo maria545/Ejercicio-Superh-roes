@@ -21,8 +21,9 @@ namespace Ejercicio_Superhéroes
             InitializeComponent();
 
             listS = Superheroe.GetSamples();
-            nombreTextBlock.DataContext = listS;
-            imagenImage.DataContext = listS;
+            contendorDock.DataContext = listS[contador];
+           // nombreTextBlock.DataContext = listS;
+            //imagenImage.DataContext = listS;
             contadorTextBlock.Text = numero + " /";
             listaCountTextBlock.Text = listS.Count + "";
         }
@@ -73,6 +74,8 @@ namespace Ejercicio_Superhéroes
             }
 
             listS.Add(superHeroe);
+
+
         }
 
         private void flechaAvanzar_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -81,8 +84,7 @@ namespace Ejercicio_Superhéroes
             contador++;
             contadorTextBlock.Text = numero + " /";
             listaCountTextBlock.Text = listS.Count + "";
-            nombreTextBlock.DataContext = listS[contador];
-            imagenImage.DataContext = listS[contador];
+            contendorDock.DataContext = listS[contador];
         }
 
         private void flechaVolver_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -91,8 +93,7 @@ namespace Ejercicio_Superhéroes
             contador--;
             contadorTextBlock.Text = numero + " /";
             listaCountTextBlock.Text = listS.Count + "";
-            nombreTextBlock.DataContext = listS[contador];
-            imagenImage.DataContext = listS[contador];
+            contendorDock.DataContext = listS[contador];
         }
     }
 }

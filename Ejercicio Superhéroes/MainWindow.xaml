@@ -6,6 +6,11 @@
         xmlns:local="clr-namespace:Ejercicio_Superhéroes"
         mc:Ignorable="d"
         Title="Superhéroes" Height="800" Width="990">
+    <Window.Resources>
+        <local:FondoConverter x:Key="convertidor"></local:FondoConverter>
+        <local:VisibilidadesConverter x:Key="convertidorVisibility"></local:VisibilidadesConverter>
+    </Window.Resources>
+    
 
     <StackPanel Background="AliceBlue">
 
@@ -13,21 +18,23 @@
 
             <TabItem Header="Ver Superhéroes">
 
-                <DockPanel x:Name="contendorDock" Background="Aqua">
-                    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                <DockPanel x:Name="contendorDock" Background="{Binding Path=Heroe, Converter={StaticResource convertidor}}">
+                    <DockPanel DockPanel.Dock="Top" LastChildFill="False">
                         <TextBlock FontWeight="Bold" Margin="5" FontSize="25" Foreground="White" x:Name="nombreTextBlock" Text="{Binding Path=Nombre}"></TextBlock>
-                        <Image x:Name="vengadoresImagen" ></Image>
-                        <Image x:Name="xmenImagen" ></Image>
-                    </StackPanel>
+                        <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                            <Image Visibility="{Binding Path=Vengador, Converter={StaticResource convertidorVisibility}}" Source="avengers.png" Width="50" x:Name="vengadoresImagen" ></Image>
+                            <Image Visibility="{Binding Path=Xmen, Converter={StaticResource convertidorVisibility}}" Source="xmen.png" Width="50" x:Name="xmenImagen" ></Image>
+                        </StackPanel>
+                    </DockPanel>
                     <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Image Source="arrow.png" MouseDown="flechaAvanzar_MouseDown" Width="50"></Image>
+                        <Image Source="arrow.png" MouseDown="flechaVolver_MouseDown" Width="50"></Image>
 
                         <StackPanel Orientation="Horizontal">
                             <TextBlock x:Name="contadorTextBlock" FontWeight="Bold" FontSize="20" Margin="5"></TextBlock>
                             <TextBlock x:Name="listaCountTextBlock"  FontWeight="Bold" FontSize="20"  Margin="5"></TextBlock>
                         </StackPanel>
 
-                        <Image MouseDown="flechaVolver_MouseDown" Source="arrow.png"  Width="50" RenderTransformOrigin="0.5,0.5">
+                        <Image MouseDown="flechaAvanzar_MouseDown" Source="arrow.png"  Width="50" RenderTransformOrigin="0.5,0.5">
                             <Image.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform ScaleY="1" ScaleX="-1"/>

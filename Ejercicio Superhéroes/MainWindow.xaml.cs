@@ -27,28 +27,6 @@ namespace Ejercicio_Superhéroes
             listaCountTextBlock.Text = listS.Count + "";
         }
 
-        private void pasar_Click(object sender, RoutedEventArgs e)
-        {
-            numero++;
-            contador++;               
-            contadorTextBlock.Text = numero + " /";
-            listaCountTextBlock.Text = listS.Count + "";
-            nombreTextBlock.DataContext = listS[contador];
-            imagenImage.DataContext = listS[contador];
-                       
-        }
-
-        private void volver_Click(object sender, RoutedEventArgs e)
-        {
-            numero--;
-            contador--;           
-            contadorTextBlock.Text = numero + " /";
-            listaCountTextBlock.Text = listS.Count + "";
-            nombreTextBlock.DataContext = listS[contador];
-            imagenImage.DataContext = listS[contador];
-            
-        }    
-
         private void villanoRadioButton_Checked(object sender, RoutedEventArgs e)
         {
             vengadoresCheckBox.IsEnabled = false;
@@ -77,7 +55,7 @@ namespace Ejercicio_Superhéroes
                superHeroe.Heroe = true;
                 if (vengadoresCheckBox.IsChecked == true)
                 {
-                    superHeroe.Vengador = true;
+                    superHeroe.Vengador = true;                
                 }
                 else superHeroe.Vengador = false;
 
@@ -95,6 +73,26 @@ namespace Ejercicio_Superhéroes
             }
 
             listS.Add(superHeroe);
+        }
+
+        private void flechaAvanzar_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            numero++;
+            contador++;
+            contadorTextBlock.Text = numero + " /";
+            listaCountTextBlock.Text = listS.Count + "";
+            nombreTextBlock.DataContext = listS[contador];
+            imagenImage.DataContext = listS[contador];
+        }
+
+        private void flechaVolver_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            numero--;
+            contador--;
+            contadorTextBlock.Text = numero + " /";
+            listaCountTextBlock.Text = listS.Count + "";
+            nombreTextBlock.DataContext = listS[contador];
+            imagenImage.DataContext = listS[contador];
         }
     }
 }

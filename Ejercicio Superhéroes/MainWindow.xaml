@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:Ejercicio_Superhéroes"
         mc:Ignorable="d"
         Title="Superhéroes" Height="800" Width="990">
-    
+
     <StackPanel Background="AliceBlue">
-        
+
         <TabControl Margin="5">
 
             <TabItem Header="Ver Superhéroes">
@@ -20,16 +20,24 @@
                         <Image x:Name="xmenImagen" ></Image>
                     </StackPanel>
                     <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Button Click="volver_Click" Width="50"></Button>
+                        <Image Source="arrow.png" MouseDown="flechaAvanzar_MouseDown" Width="50"></Image>
 
                         <StackPanel Orientation="Horizontal">
                             <TextBlock x:Name="contadorTextBlock" FontWeight="Bold" FontSize="20" Margin="5"></TextBlock>
                             <TextBlock x:Name="listaCountTextBlock"  FontWeight="Bold" FontSize="20"  Margin="5"></TextBlock>
                         </StackPanel>
 
-                        <Button Click="pasar_Click"  Width="50" RenderTransformOrigin="0.5,0.5">
+                        <Image MouseDown="flechaVolver_MouseDown" Source="arrow.png"  Width="50" RenderTransformOrigin="0.5,0.5">
+                            <Image.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleY="1" ScaleX="-1"/>
+                                    <SkewTransform AngleY="0" AngleX="0"/>
+                                    <RotateTransform Angle="0"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Image.RenderTransform>
 
-                        </Button>
+                        </Image>
 
                     </StackPanel>
                     <Image Margin="5" x:Name="imagenImage" Stretch="Fill" Source="{Binding Path=Imagen}"></Image>
@@ -79,17 +87,17 @@
                             <Button  x:Name="aceptarButton" Click="aceptarButton_Click" Width="100" Margin="5" FontSize="15" IsDefault="True">Aceptar</Button>
                             <Button x:Name="limpiarButton" Click="limpiarButton_Click" Width="100" Margin="5" FontSize="15" IsCancel="True">Limpiar</Button>
                         </StackPanel>
-                        
+
                     </StackPanel>
-                    
-                    
-                    
+
+
+
                     <Border Grid.Column="1" BorderBrush="Black" BorderThickness="3" CornerRadius="5" Margin="10">
                         <StackPanel  Background="AntiqueWhite" Height="700">
                             <Image Source="{Binding ElementName=imagenTextBox,Path=Text, Mode=TwoWay}"></Image>
                         </StackPanel>
                     </Border>
-                    
+
                 </Grid>
 
 

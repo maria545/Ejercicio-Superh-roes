@@ -14,6 +14,7 @@ namespace Ejercicio_Superhéroes
         List<Superheroe> listS;
         int contador = 0;
         int numero = 1;
+
         public MainWindow()
         {
             InitializeComponent();
